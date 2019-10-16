@@ -1,4 +1,4 @@
-ARG cuda_version=9.0
+ARG cuda_version=9.2
 ARG cudnn_version=7
 FROM nvidia/cuda:${cuda_version}-cudnn${cudnn_version}-devel
 
@@ -45,15 +45,14 @@ RUN conda install -y python=${python_version} && \
     pip install --upgrade pip && \
     pip install \
       sklearn_pandas \
-      tensorflow \
       progressbar2 \
       gensim \
       tornado \
       pysolr \
       fuzzywuzzy \
       jieba \
-      web.py==0.40.dev0 \
-      keras && \
+      web.py==0.40.dev0 && \  
+    conda install pytorch torchvision cudatoolkit=9.2 -c pytorch && \
     conda install \
       bcolz \
       h5py \
