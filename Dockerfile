@@ -52,7 +52,7 @@ RUN conda install -y python=${python_version} && \
       fuzzywuzzy \
       jieba \
       web.py==0.40.dev0 && \  
-    conda install pytorch torchvision cudatoolkit=9.2 -c pytorch && \
+    conda install pytorch torchvision cudatoolkit=${cuda_version} -c pytorch && \
     conda install \
       bcolz \
       h5py \
